@@ -49,6 +49,10 @@ document.getElementById('themeToggle').addEventListener('change', function () {
       display.innerText += value;
     }
   }
+
+ function vibrateButton() {
+    if (navigator.vibrate) navigator.vibrate(20);
+  }
   
   // Clear display
   function clearDisplay() {
