@@ -1,0 +1,270 @@
+/* Base Variables and Global Styles */
+:root {
+    --bg-light: #f2f2f2;
+    --bg-dark: #1e1e1e;
+    --text-light: #333;
+    --text-dark: #f2f2f2;
+    --accent: #00ffd5;
+    --btn-shadow-light: rgba(0, 0, 0, 0.2);
+    --btn-shadow-dark: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  body.light {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+  }
+  
+  /* Toggle Theme */
+  .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .circle-toggle {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    position: relative;
+  }
+  
+  .circle-toggle input {
+    display: none;
+  }
+  
+  .circle-slider {
+    width: 36px;
+    height: 36px;
+    background: #f13f3f;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(252, 0, 0, 0.4);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  
+  .circle-toggle input:checked + .circle-slider {
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent), 0 0 20px var(--accent);
+  }
+  
+  .circle-slider:hover {
+    box-shadow: 0 0 10px #00ffd5, 0 0 20px #00ffd5;
+  }
+  
+  /* Calculator Container */
+  .calculator {
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: background 0.4s;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .calculator h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fe0087;
+    letter-spacing: 1px;
+  }
+  
+  body.light .calculator {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Display */
+  .display {
+    background: #000;
+    color: #00ffd5;
+    font-size: 3rem;
+    padding: 20px;
+    text-align: right;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 10px #00ffd5;
+    transition: all 0.4s;
+  }
+  
+  /* Buttons Grid */
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  /* Button Base */
+  .btn {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 10px var(--btn-shadow-dark);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Special Buttons */
+  .btn.operator {
+    background: #330066;
+    color: #ff66ff;
+  }
+  
+  .btn.equal {
+    background: #999900;
+    color: #000;
+  }
+  
+  .btn.clear {
+    background: #660000;
+    color: #fff;
+  }
+  
+  .Clear {
+    grid-column: span 1;
+    background: #fa0d0d;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .equals {
+    grid-column: span 1;
+    background: #00ffd5;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .zero {
+    grid-column: span 1;
+  }
+  
+  /* Light Mode Buttons */
+  body.light .btn {
+    background: #d0cfcf;
+    color: #000;
+    box-shadow: 0 5px 10px var(--btn-shadow-light);
+  }
+  
+  /* Button Hover & Active Effects */
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ffd5;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 10px #00ffd5;
+  }
+  
+  /* History Panel */
+  .history-panel {
+    margin-top: 40px;
+    background: #111;
+    padding: 20px;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    color: #fff;
+    transition: 0.3s;
+  }
+  
+  body.light .history-panel {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .history-panel h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+  }
+  
+  #historyList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  #historyList li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #444;
+  }
+  
+  /* ============ Responsive Media Queries ============ */
+  
+  /* Smartphones (up to 600px) */
+  @media (max-width: 600px) {
+    .buttons {
+      gap: 10px;
+    }
+  
+    .btn {
+      font-size: 1rem;
+    }
+  
+    .display {
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+  }
+  
+  /* Tablets (601px to 900px) */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .calculator {
+      max-width: 500px;
+    }
+  
+    .btn {
+      font-size: 1.3rem;
+    }
+  
+    .display {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Laptops and larger (901px and up) */
+  @media (min-width: 901px) {
+    .calculator {
+      max-width: 600px;
+    }
+  
+    .btn {
+      font-size: 1.4rem;
+    }
+  
+    .display {
+      font-size: 2.5rem;
+    }
+  }
+  

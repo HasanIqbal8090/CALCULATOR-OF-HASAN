@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="calculator.png" type="image/x-icon">
+  <title>CALCULATOR OF HASAN</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+  
+  
+  <!-- Basic Calculator -->
+  <div class="tab-content active" id="basic">
+    <div class="calculator">
+        <input type="text" id="hiddenKeyboardInput" style="opacity:0; position:absolute; pointer-events:none;">
+
+
+        <div class="calculator">
+          <h2>WELCOME HASAN!</h2>
+            <div class="inside-toggle">
+
+              <label class="circle-toggle">
+                <input type="checkbox" id="themeToggle" />
+                <span class="circle-thumb"></span>
+              </label>
+            </div>
+          
+            
+
+            <!-- Rest of your buttons... -->
+          </div>
+          
+
+
+      <div class="display" id="basicDisplay">0</div>
+      <div class="buttons">
+        <!-- Basic Calculator Buttons -->
+        
+        <button class="btn Clear" onclick="clearDisplay()">C</button>
+
+        <button class="btn" onclick="backspace()">⌫</button>
+
+
+        
+        <button class="btn" onclick="append('.')">.</button>
+        <button class="btn" onclick="append('+')">+</button>
+        
+        <button class="btn" onclick="append('7')">7</button>
+        <button class="btn" onclick="append('8')">8</button>
+        <button class="btn" onclick="append('9')">9</button>
+        <button class="btn" onclick="append('/')">÷</button>
+        <button class="btn" onclick="append('4')">4</button>
+        <button class="btn" onclick="append('5')">5</button>
+        <button class="btn" onclick="append('6')">6</button>
+        <button class="btn" onclick="append('*')">×</button>
+        <button class="btn" onclick="append('1')">1</button>
+        <button class="btn" onclick="append('2')">2</button>
+        <button class="btn" onclick="append('3')">3</button>
+        <button class="btn" onclick="append('-')">−</button>
+        <button class="btn zero" onclick="append('0')">0</button>
+        <button class="btn zero" onclick="append('00')">00</button>
+        <button class="btn equals" onclick="calculate()">=</button>
+        <button class="btn" onclick="activateTyping()">⌨️ Type</button>
+
+      </div>
+    </div>
+  </div>
+  
+ 
+    </div>
+  </div>
+
+  
+    </div>
+  </div>
+  
+  <!-- History Panel -->
+  <div class="history-panel">
+    <h3>History</h3>
+    <ul id="historyList"></ul>
+  
+  <button class="btn clear-history" onclick="clearHistory()">🗑 Clear History</button>
+</div>
+
+
+<!-- Profile Corner -->
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
